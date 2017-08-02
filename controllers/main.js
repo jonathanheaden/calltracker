@@ -1,15 +1,14 @@
 var ctrlShared = require('./shared');
 
 
-var landing = function (req, res) {
-    
+var landing = function (req, res) {   
     ctrlShared.sendJsonResponse(res, 201, {
         'message': 'home page'
     })
 }
 
 var allContacts = function (req, res) {
-    
+  
     ctrlShared.sendJsonResponse(res, 201, {
         'message': 'home page'
     })
@@ -43,3 +42,9 @@ var updateContact = function (req, res) {
     })
 }
 
+module.exports.landing = landing;
+module.exports.allContacts = allContacts;
+module.exports.newContact = newContact;
+module.exports.newContactCall = newContactCall;
+module.exports.readContactCalls = readContactCalls;
+module.exports.updateContact = updateContact;
