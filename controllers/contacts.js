@@ -27,13 +27,14 @@ var allContacts = function (req, res) {
 var newContact = function (req, res) {
     contactdb
         .create({
-            name: req.body.name,
-            number: req.body.number,
-            address: req.body.address,
+            vendor: req.body.vendor,
+            contactname: (req.body.contactname ? req.body.contactname : ''),
+            number: (req.body.number ? req.body.number : ''),
+            address: (req.body.address ? req.body.address : ''),
             createdAt: new Date(),
-            description: req.body.description,
-            trade: req.body.trade,
-            email: req.body.email,
+            description: (req.body.description ? req.body.description : ''),
+            trade: (req.body.trade ? req.body.trade : ''),
+            email: (req.body.email ? req.body.email : ''),
             calls: []
         }, function (err, contact) {
             if (err) {

@@ -8,8 +8,8 @@ var contactCallSchema = new mongoose.Schema({
 });
 
 var contactSchema = new mongoose.Schema({
-
-    name: { type: String, required: true }, 
+    vendor: { type: String, required: true},
+    contactname: { type: String }, 
     number: { type: String },
     address: { type: String },
     createdAt: { type: Date },
