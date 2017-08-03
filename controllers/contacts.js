@@ -25,7 +25,6 @@ var allContacts = function (req, res) {
 }
 
 var newContact = function (req, res) {
-    // post contacts
     contactdb
         .create({
             name: req.body.name,
@@ -45,19 +44,6 @@ var newContact = function (req, res) {
         });
 }
 
-var readContactCalls = function (req, res) {
-
-    ctrlShared.sendJsonResponse(res, 201, {
-        'message': 'read contact'
-    })
-}
-
-var newContactCall = function (req, res) {
-
-    ctrlShared.sendJsonResponse(res, 201, {
-        'message': 'new call'
-    })
-}
 
 var updateContact = function (req, res) {
 
@@ -69,6 +55,4 @@ var updateContact = function (req, res) {
 module.exports.landing = landing;
 module.exports.allContacts = allContacts;
 module.exports.newContact = newContact;
-module.exports.newContactCall = newContactCall;
-module.exports.readContactCalls = readContactCalls;
 module.exports.updateContact = updateContact;
