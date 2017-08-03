@@ -10,7 +10,7 @@ var contactCallSchema = new mongoose.Schema({
 var contactSchema = new mongoose.Schema({
 
     name: { type: String, required: true }, 
-    number: { type: Number },
+    number: { type: String },
     address: { type: String },
     createdAt: { type: Date },
     description: { type: String},
