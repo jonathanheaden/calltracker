@@ -10,7 +10,7 @@ var landing = function (req, res) {
 var allContacts = function (req, res) {
   
     ctrlShared.sendJsonResponse(res, 201, {
-        'message': 'home page'
+        'message': 'all contacts'
     })
 }
 
