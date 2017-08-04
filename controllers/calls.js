@@ -125,7 +125,7 @@ var DeleteContactCall = function (req, res) {
         });
         return;
     }
-    Loc
+    contactdb
         .findById(req.params.contactid)
         .select('calls')
         .exec(
