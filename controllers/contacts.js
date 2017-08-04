@@ -23,6 +23,18 @@ var allContacts = function (req, res) {
             ctrlShared.sendJsonResponse(res, 200, contact);
         });
 }
+var readOneContact = function (req, res) {
+    contactdb
+        .findById(req.params.contactid)
+        .exec(
+            function (err, contact) {
+                if (err) {
+                    ctrlShared.sendJsonResponse(res, 400, err);
+                } else {
+                    ctrlShared.sendJsonResponse(res, 200, contact);
+                }
+            })
+}
 
 var newContact = function (req, res) {
     contactdb
@@ -62,6 +74,13 @@ var updateContact = function (req, res) {
                         contact.description = req.body.description ? req.body.description : contact.description;
                         contact.trade = req.body.trade ? req.body.trade : contact.trade;
                         contact.email = req.body.email ? req.body.email : contact.email;
+                        contact.save(function (err, contact) {
+                            if (err) {
+                                sendJsonResponse(res, 400, err);
+                            } else {
+                                sendJsonResponse(res, 200, contact);
+                            }
+                        })
                     }
                 }
             );
@@ -74,5 +93,6 @@ var updateContact = function (req, res) {
 
 module.exports.landing = landing;
 module.exports.allContacts = allContacts;
+module.exports.readOneContact = readOneContact;
 module.exports.newContact = newContact;
 module.exports.updateContact = updateContact;
