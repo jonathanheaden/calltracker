@@ -10,6 +10,7 @@ router.get('/contacts',ctrlContacts.allContacts);
 router.get('/contacts/:contactid',ctrlContacts.readOneContact)
 router.post('/contacts',ctrlContacts.newContact);
 router.patch('/contacts/:contactid',ctrlContacts.updateContact);
+router.delete('/contacts/:contactid',ctrlContacts.deleteContact);
 /* Calls */
 router.post('/contacts/:contactid',ctrlCalls.newContactCall);
 router.get('/contacts/:contactid/:callid',ctrlCalls.readOneContactCalls);

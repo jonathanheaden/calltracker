@@ -57,6 +57,27 @@ var newContact = function (req, res) {
         });
 }
 
+var deleteContact = function(req,res){
+    var contactid = req.params.contactid;
+    if (contactid) {
+        contactdb 
+            .findByIdAndRemove(contactid)
+            .exec(
+                function(err, contact) {
+                    if(err){
+                        ctrlShared.sendJsonResponse(res, 404, err);
+                        return;
+                    } 
+                    ctrlShared.sendJsonResponse(res,200, null);
+                }
+            );
+    } else {
+        ctrlShared.sendJsonResponse(res, 404,{
+            "message": "No contactid"
+        });
+    }
+};
+
 
 var updateContact = function (req, res) {
     if (req.params.contactid) {
@@ -95,4 +116,5 @@ module.exports.landing = landing;
 module.exports.allContacts = allContacts;
 module.exports.readOneContact = readOneContact;
 module.exports.newContact = newContact;
+module.exports.deleteContact = deleteContact;
 module.exports.updateContact = updateContact;
