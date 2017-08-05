@@ -2,10 +2,10 @@ var mongoose = require( 'mongoose' );
 
 var dbURI = 'mongodb://localhost/calltracker';
 if (process.env.NODE_ENV === 'production') {
-    dbURI = 'mongodb://username:password@ds129733.mlab.com:29733/c9r' //process.env.MLAB_URI;
+    dbURI = process.env.MLAB_URI;
 }
 
-mongoose.connect(dbURI);
+mongoose.connect(dbURI,{ useMongoClient: true });
 
 mongoose.connection.on('connected',function(){
     console.log('Mongoose connected to ' + dbURI);
