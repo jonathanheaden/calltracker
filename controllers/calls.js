@@ -70,7 +70,7 @@ var readOneContactCalls = function (req, res) {
 
 var updateContactCall = function (req, res) {
     if (!req.params.contactid || !req.params.callid) {
-        ctrlShared.sendJsonResponse(rew, 404, {
+        ctrlShared.sendJsonResponse(res, 404, {
             "message": "Not found, contactid and callid are both required"
         });
         return;
